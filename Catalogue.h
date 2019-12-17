@@ -12,7 +12,9 @@ e-mail               : $EMAIL$
 //--------------------------------------------------- Interfaces utilisees
 #include "TrajetSimple.h"
 #include "TrajetCompose.h"
+#include <string.h>
 #include <cstring>
+#include <fstream>
 using namespace std;
 //------------------------------------------------------------- Constantes
 
@@ -66,6 +68,10 @@ public:
 	// Mode d'emploi :
 	// methode qui ajoute les TrajetSimple dans la catalogue	
 	//
+
+	void Charger(fstream & entree);
+
+	
 
 //---------------------------------------------------- Attributs publiques
 public:

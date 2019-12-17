@@ -13,6 +13,7 @@ e-mail               : $EMAIL$
 #include <stdio.h>
 #include <cstring>
 #include <iostream>
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel
@@ -178,3 +179,55 @@ void Catalogue::ChercherCorres(char* Dep, char* Arr, int* tab, int nbr, int* fou
 		}
 	}
 }//----- Fin de M¨¦thode
+
+void Catalogue::Charger(fstream & entree){
+	cout << "entrer dans le bloc" << endl;
+	while(1){
+	cout << "entree.good" << endl;
+	char type;
+	entree >> type;
+	if(type == '2'){
+	break;
+	}else if(type == '0'){
+	cout << "Trajet Simple" << endl;
+	char * Dept = new char [20];
+	char * Arri = new char [20];
+	char * Mode = new char [20];
+	entree >> Dept;
+	entree >> Arri;
+	entree >> Mode;
+	TrajetSimple * T0 = new TrajetSimple(Dept,Arri,Mode);
+	AjouterS(T0);
+	} else if (type == '1'){
+	cout << "Trajet Compose" << endl;
+	int nbr;
+	entree >> nbr;
+	int i = 0;
+	char * Dept = new char [20];
+	entree >> Dept;
+	char * DEPT = new char [20];
+	strcpy(DEPT,Dept);
+	TrajetSimple** LesTrajets = new TrajetSimple* [nbr];
+	char * Transfer;
+	Transfer = Dept;
+	while(i < nbr){
+	char * Arri = new char [20];
+	entree >> Arri;
+	char * T = new char [20];
+	strcpy(T,Arri);
+	char * Mode = new char [20];
+	entree >> Mode;
+	TrajetSimple * T0 = new TrajetSimple(Transfer,Arri,Mode);
+	LesTrajets [i] = T0;
+	Transfer = T;
+	i++;
+	}
+	TrajetCompose * T2 = new TrajetCompose(DEPT, Transfer, LesTrajets, nbr);
+	AjouterC(T2);
+	}
+	}
+}
+
+
+
+
