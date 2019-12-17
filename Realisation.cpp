@@ -131,20 +131,29 @@ cin >> choix;
 	}
 	if(choix == '6')
 	{
+	char choice;
+	cout<<"\r\n"<<"Menu:\r\n"<<"1: Chargement sans selection\r\n"<<"2: Chargement selon le type des trajets\r\n";
+	cin >> choice;
+	if(choice == '1'){
 	string nomficher;
 	cout << "Saisisez le nom de ficher :" << endl;
 	cin >> nomficher;
 	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
+	entree.seekp(0,ios::beg);
 	c ->Charger(entree);
 	}
-	if(choix == '7')
-	{
+	if(choice == '2'){
 	string nomficher;
 	cout << "Saisisez le nom de ficher :" << endl;
 	cin >> nomficher;
-	fstream sortie(nomficher.c_str(),fstream::out);
-	c ->Sauvegarder(sortie);
-	}	
+	cout << "Saisisez le type des trajets ( 0 pour un trajet simple, 1 pour un trajet compose ) :" << endl;
+	string TypeSelece;
+	cin >> TypeSelece;
+	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
+	entree.seekp(0,ios::beg);
+	c ->Charger(entree,TypeSelece);
+	}
+	}
 	if(choix == '8')
 	{
 	Fin = 1;

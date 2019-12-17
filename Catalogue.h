@@ -76,7 +76,7 @@ public:
 
 	void Charger(fstream & entree);
 
-	
+	void Charger(fstream & entree, string TypeSelecte); // "0" pour un trajet simple, "1" pour un trajet compose
 
 //---------------------------------------------------- Attributs publiques
 public:
