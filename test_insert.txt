@@ -4,4 +4,5 @@
 0 Lille Paris Voiture
 1 5 Toulouse Marseille Voiture Lyon Train Paris Voiture Strasbourg Bus Berlin Bus 
 1 3 Bordeaux Paris Avion Marseille Avion Ajaccio Bateau
-0 Ajaccio Bastia Voiture 
+0 Ajaccio Bastia Voiture
+2
