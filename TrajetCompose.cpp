@@ -11,8 +11,8 @@ e-mail               : $EMAIL$
 
 //-------------------------------------------------------- Include syst��me
 #include <iostream>
-using namespace std;
 #include <cstring>
+#include <fstream>
 using namespace std;
 //------------------------------------------------------ Include personnel
 #include "TrajetCompose.h"
@@ -47,7 +47,7 @@ void TrajetCompose::Afficher()
 	cout << "\r\n";
 }//----- Fin de M��thode
 
-void Trajet::Sauvegarder(fstream & sortie) {
+void TrajetCompose::Sauvegarder(fstream & sortie) {
 	int i;
 	sortie << "1 " << NombreTrajets << " " << TrajetsSimples[0]->Depart << " " << TrajetsSimples[0]->Arrivee << " " << TrajetsSimples[0]->Mode;
 	for(i=1;i<NombreTrajets;i++)

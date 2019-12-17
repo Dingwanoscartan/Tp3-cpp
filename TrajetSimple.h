@@ -9,6 +9,7 @@ e-mail               : $EMAIL$
 //---------- Interface de la classe <TrajetSimple> (fichier TrajetSimple.h) ------
 #if ! defined (TRAJETSIMPLE_H)
 #define TRAJETSIMPLE_H
+#include <fstream>
 //--------------------------------------------------- Interfaces utilisees
 #include "Trajet.h"
 //------------------------------------------------------------- Constantes
@@ -41,7 +42,7 @@ class TrajetSimple:public Trajet
 		// methode qui affiche tous les information d'un TrajetSimple
 		//
 
-		void Trajet::Sauvegarder(fstream & sortie)
+		void Sauvegarder(fstream & sortie);
 		// Mode d'emploi :
 		// methode qui sauvegarde tous les information d'un TrajetSimple dans un flux
 		//

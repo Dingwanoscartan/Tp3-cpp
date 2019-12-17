@@ -14,6 +14,7 @@ e-mail               : $EMAIL$
 #include <iostream>
 #include<stdio.h>
 #include <cstring>
+#include <fstream>
 using namespace std;
 
 //------------------------------------------------------ Include personnel

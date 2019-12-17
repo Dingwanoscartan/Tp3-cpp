@@ -13,7 +13,7 @@ e-mail               : $EMAIL$
 #include <iostream>
 using namespace std;
 #include <cstring>
-using namespace std;
+#include <fstream>
 //------------------------------------------------------ Include personnel
 #include "TrajetSimple.h"
 
@@ -40,9 +40,9 @@ void TrajetSimple::Afficher()
 }//----- Fin de M��thode
 
 
-void Trajet::Sauvegarder(fstream & sortie){
+void TrajetSimple::Sauvegarder(fstream & sortie){
 //Algorithme :
-	sortie << "1 " << Depart << " " << Arrivee << " " << Mode << endl;
+	sortie << "0 " << Depart << " " << Arrivee << " " << Mode << endl;
 }
 
 TrajetSimple::~TrajetSimple()

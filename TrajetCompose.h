@@ -10,6 +10,7 @@ e-mail               : $EMAIL$
 #if ! defined (TRAJETCOMPOSE_H)
 #define TRAJETCOMPOSE_H
 #include <cstring>
+#include <fstream>
 using namespace std;
 //--------------------------------------------------- Interfaces utilisees
 #include "Trajet.h"
@@ -44,7 +45,7 @@ class TrajetCompose: public Trajet
 		// methode qui affiche tous les information d'un TrajetCompose et les TrajetSimples associes
 		//
 
-		void Trajet::Sauvegarder(fstream & sortie)
+		void Sauvegarder(fstream & sortie);
 		// Mode d'emploi :
 		// methode qui sauvegarde tous les information d'un TrajetCompose dans un flux
 		//

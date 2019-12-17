@@ -11,6 +11,7 @@ e-mail               : $EMAIL$
 #define TRAJET_H
 //--------------------------------------------------- Interfaces utilisees
 #include <cstring>
+#include <fstream>
 using namespace std;
 //------------------------------------------------------------- Constantes
 

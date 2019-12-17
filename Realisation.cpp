@@ -15,7 +15,7 @@ int len;
 int i;
 int Fin = 0;
 while(Fin == 0){ 
-cout<<"\r\n"<<"Menu:\r\n"<<"1: Afficher la catalogue\r\n"<<"2: Rechercher\r\n"<<"3: Ajouter un trajet simple\r\n"<<"4: Ajouter un trajet compose\r\n"<<"5: Rechercher en mode avancee\r\n"<<"6: Chargement sans selection\r\n"<<"7: Quitter\r\n";
+cout<<"\r\n"<<"Menu:\r\n"<<"1: Afficher la catalogue\r\n"<<"2: Rechercher\r\n"<<"3: Ajouter un trajet simple\r\n"<<"4: Ajouter un trajet compose\r\n"<<"5: Rechercher en mode avancee\r\n"<<"6: Chargement sans selection\r\n"<<"7: Sauvegarde\r\n"<<"8: Quitter\r\n";
 cin >> choix;
 	if(choix == '1')
 	{
@@ -135,10 +135,17 @@ cin >> choix;
 	cout << "Saisisez le nom de ficher :" << endl;
 	cin >> nomficher;
 	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
-	entree.seekp(0,ios::beg);
 	c ->Charger(entree);
 	}
 	if(choix == '7')
+	{
+	string nomficher;
+	cout << "Saisisez le nom de ficher :" << endl;
+	cin >> nomficher;
+	fstream sortie(nomficher.c_str(),fstream::out);
+	c ->Sauvegarder(sortie);
+	}	
+	if(choix == '8')
 	{
 	Fin = 1;
 	}	

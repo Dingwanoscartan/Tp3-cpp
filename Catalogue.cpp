@@ -5,11 +5,11 @@ debut                : 20/11
 copyright            : (C) 2019 par Muye HE, Tuoyuan TAN
 e-mail               : $EMAIL$
 *************************************************************************/
-//---------- R¨¦alisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
+//---------- Rï¿½ï¿½alisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include syst¨¨me
+//-------------------------------------------------------- Include systï¿½ï¿½me
 #include <stdio.h>
 #include <cstring>
 #include <iostream>
@@ -26,11 +26,11 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- M¨¦thodes publiques
+//----------------------------------------------------- Mï¿½ï¿½thodes publiques
 
 Catalogue::Catalogue(){
 	// constructeur par defaut qui ne fait rien et qui n'a pas de parametres
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 
 void Catalogue::Afficher(){
@@ -44,7 +44,21 @@ void Catalogue::Afficher(){
 		Trajets[i]->Afficher();
 		}
 	}		 
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
+
+void Catalogue::Sauvegarder(fstream & sortie) {
+	//Algorithme :
+	if(Nbtraj==0){
+		return;
+	}
+	else{
+		int i;
+		for(i=0;i<Nbtraj;i++){
+		Trajets[i]->Sauvegarder(sortie);
+		}
+		sortie << "2";
+	}		 
+}
 
 void Catalogue::Chercher(char * Dep,char * Arr){
 	//Algorithme :
@@ -64,7 +78,7 @@ void Catalogue::Chercher(char * Dep,char * Arr){
 	if(trouve==0){
 		cout<<"aucun trajet correspondant a votre besoin "<<endl;
 	}	
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 void Catalogue::ChercherAvancee(char * Dep, char * Arr){
 	//Initialisation :
@@ -84,7 +98,7 @@ void Catalogue::ChercherAvancee(char * Dep, char * Arr){
 	} else {
 	cout<<"aucun trajet correspondant a votre besoin "<<endl;
 	}
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 
 void Catalogue::AjouterC(TrajetCompose* t){
@@ -105,7 +119,7 @@ void Catalogue::AjouterC(TrajetCompose* t){
 	Trajets[Nbtraj] = t;
 	Nbtraj++;
 	}
-}//----- Fin de M¨¦thode	
+}//----- Fin de Mï¿½ï¿½thode	
 
 void Catalogue::AjouterS(TrajetSimple* t){
 	//Algorithme :
@@ -125,17 +139,17 @@ void Catalogue::AjouterS(TrajetSimple* t){
 	Trajets[Nbtraj] = t;
 	Nbtraj++;
 	}
-}//----- Fin de M¨¦thode	
+}//----- Fin de Mï¿½ï¿½thode	
 
 Catalogue::~Catalogue(){
-	// Fonctionnement g¨¦n¨¦ral :
+	// Fonctionnement gï¿½ï¿½nï¿½ï¿½ral :
 	//Destructeur qui detruit tous les Trajets stockes dans ce Catalogue un par un
 	int i;
 	for(i=0;i<Nbtraj;i++){
 	delete Trajets[i];
 	}
 	delete [] Trajets;
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 
 //------------------------------------------------------------------ PRIVE
@@ -178,7 +192,7 @@ void Catalogue::ChercherCorres(char* Dep, char* Arr, int* tab, int nbr, int* fou
 			}
 		}
 	}
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 void Catalogue::Charger(fstream & entree){
 	cout << "entrer dans le bloc" << endl;
