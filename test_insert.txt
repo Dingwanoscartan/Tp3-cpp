@@ -1,0 +1,7 @@
+0 Melun Paris Velo
+0 Lyon Marseille Voiture
+0 Berlin Paris Bus
+0 Lille Paris Voiture
+1 5 Toulouse Marseille Voiture Lyon Train Paris Voiture Strasbourg Bus Berlin Bus 
+1 3 Bordeaux Paris Avion Marseille Avion Ajaccio Bateau
+0 Ajaccio Bastia Voiture 
