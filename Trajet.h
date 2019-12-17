@@ -49,6 +49,12 @@ public:
 	// Contrat :
 	//
 
+	virtual void Sauvegarder(fstream & sortie);
+	// Mode d'emploi :
+	// methode qui sauvegarde les information d'un Trajet dans un flux
+	// Contrat :
+	//
+
 //---------------------------------------------------- Attributs publiques
 	char * Depart;
     char * Arrivee;

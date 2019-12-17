@@ -43,6 +43,12 @@ class TrajetCompose: public Trajet
 		// Mode d'emploi :
 		// methode qui affiche tous les information d'un TrajetCompose et les TrajetSimples associes
 		//
+
+		void Trajet::Sauvegarder(fstream & sortie)
+		// Mode d'emploi :
+		// methode qui sauvegarde tous les information d'un TrajetCompose dans un flux
+		//
+		
 		
 		//---------------------------------------------------- Attributs publiques
 		TrajetSimple ** TrajetsSimples;

@@ -40,6 +40,11 @@ class TrajetSimple:public Trajet
 		// Mode d'emploi :
 		// methode qui affiche tous les information d'un TrajetSimple
 		//
+
+		void Trajet::Sauvegarder(fstream & sortie)
+		// Mode d'emploi :
+		// methode qui sauvegarde tous les information d'un TrajetSimple dans un flux
+		//
 		
 		//---------------------------------------------------- Attributs publiques
 		char * Mode;

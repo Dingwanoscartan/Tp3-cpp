@@ -5,11 +5,11 @@ debut                : 20/11
 copyright            : (C) 2019 par Muye HE, Tuoyuan TAN
 e-mail               : $EMAIL$
 *************************************************************************/
-//---------- R¨¦alisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
+//---------- Rï¿½ï¿½alisation de la classe <Catalogue> (fichier Catalogue.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include syst¨¨me
+//-------------------------------------------------------- Include systï¿½ï¿½me
 
 #include <iostream>
 #include<stdio.h>
@@ -25,28 +25,32 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- M¨¦thodes publiques
+//----------------------------------------------------- Mï¿½ï¿½thodes publiques
 
 Trajet::Trajet(char * DEP, char * ARR):Depart(DEP),Arrivee(ARR){
 //Algorithme :
 //this->Depart = DEP;
 //this->Arrivee = ARR;
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 Trajet::Trajet(){
 //Algorithme :
 //constructeur vide
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 void Trajet::Afficher(){
 //Algorithme :	
 	cout<<"Trajet de "<<Depart<<" a "<<Arrivee<<endl; 
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
+
+void Trajet::Sauvegarder(fstream & sortie){
+//Algorithme :
+}
 
 Trajet::~Trajet(){
 //Algorithme :	
 //destructeur
-}//----- Fin de M¨¦thode
+}//----- Fin de Mï¿½ï¿½thode
 
 
 //------------------------------------------------------------------ PRIVE
