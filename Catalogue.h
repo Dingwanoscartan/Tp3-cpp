@@ -78,6 +78,11 @@ public:
 
 	void Charger(fstream & entree, string TypeSelecte); // "0" pour un trajet simple, "1" pour un trajet compose
 
+	void Charger(fstream & entree, int LigneTete, int LigneFin);
+
+	void Charger(fstream & entree, char * DeptSelecte, char * ArriSelecte); //Si l'utilisateur ne veut pas choisir une ville de depart, il doit saisir "TBD" pour la ville de depart
+								  //DE meme, si l'utilisateur ne veut pas choisir une ville d'arrivee, il doit saisir "TBD" pour la ville d'arrivee
+
 //---------------------------------------------------- Attributs publiques
 public:
 	Trajet** Trajets = new Trajet* [5];  // Nombre de Trajets maximum stockes dans le catalogue. Ce maximum peut etre change eventuellement

@@ -132,7 +132,7 @@ cin >> choix;
 	if(choix == '6')
 	{
 	char choice;
-	cout<<"\r\n"<<"Menu:\r\n"<<"1: Chargement sans selection\r\n"<<"2: Chargement selon le type des trajets\r\n";
+	cout<<"\r\n"<<"Menu:\r\n"<<"1: Chargement sans selection\r\n"<<"2: Chargement selon le type des trajets\r\n"<<"3: Chargement selon la ville de depart et/ou la ville d'arrivee\r\n"<<"4: Chargement selon une selection de trajets\r\n";
 	cin >> choice;
 	if(choice == '1'){
 	string nomficher;
@@ -152,6 +152,38 @@ cin >> choix;
 	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
 	entree.seekp(0,ios::beg);
 	c ->Charger(entree,TypeSelece);
+	}
+	if(choice == '3'){
+	string nomficher;
+	cout << "Saisisez le nom de ficher :" << endl;
+	cin >> nomficher;
+	cout << "Saisisez la ville de depart :" << endl;
+	cout << "Si vous ne voulez pas choisir selon la ville de depart, saisisez TBD" << endl;
+	char * Dept = new char [20];
+	cin >> Dept;
+	cout << "Saisisez la ville d'arrivee :" << endl;
+	cout << "Si vous ne voulez pas choisir selon la ville d'arrivee, saisisez TBD" << endl;
+	char * Arri = new char [20];
+	cin >> Arri;
+	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
+	entree.seekp(0,ios::beg);
+	c ->Charger(entree,Dept,Arri);
+	delete [] Dept;
+	delete [] Arri;
+	}
+	if(choice == '4'){
+	string nomficher;
+	cout << "Saisisez le nom de ficher :" << endl;
+	cin >> nomficher;
+	cout << "Saisisez l'indice de la premiere ligne :" << endl;
+	int LigneTete;
+	cin >> LigneTete;
+	cout << "Saisisez l'indice de la derniere ligne :" << endl;
+	int LigneFin;
+	cin >> LigneFin;
+	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
+	entree.seekp(0,ios::beg);
+	c ->Charger(entree,LigneTete,LigneFin);
 	}
 	}
 	if(choix == '8')

@@ -286,4 +286,110 @@ void Catalogue::Charger(fstream & entree, string TypeSelecte){
 	}
 }
 
+void Catalogue::Charger(fstream & entree, char * DeptSelecte, char * ArriSelecte){
+	while(entree.good()){
+	string type;
+	entree >> type;
+	if(type == "2"){
+	break;
+	}else if(type == "0"){
+	char * Dept = new char [20];
+	char * Arri = new char [20];
+	char * Mode = new char [20];
+	entree >> Dept;
+	entree >> Arri;
+	entree >> Mode;
+	TrajetSimple * T0 = new TrajetSimple(Dept,Arri,Mode);	
+	if((strcmp(DeptSelecte,Dept)==0 || strcmp(DeptSelecte,"TBD")==0) && (strcmp(ArriSelecte,Arri)==0 || strcmp(ArriSelecte,"TBD")==0)){
+	AjouterS(T0);
+	} else {
+	delete T0;
+	}
+	} else if (type == "1"){
+	int nbr;
+	entree >> nbr;
+	int i = 0;
+	char * Dept = new char [20];
+	entree >> Dept;
+	char * DEPT = new char [20];
+	strcpy(DEPT,Dept);
+	TrajetSimple** LesTrajets = new TrajetSimple* [nbr];
+	char * Transfer;
+	Transfer = Dept;
+	while(i < nbr){
+	char * Arri = new char [20];
+	entree >> Arri;
+	char * T = new char [20];
+	strcpy(T,Arri);
+	char * Mode = new char [20];
+	entree >> Mode;
+	TrajetSimple * T0 = new TrajetSimple(Transfer,Arri,Mode);
+	LesTrajets [i] = T0;
+	Transfer = T;
+	i++;
+	}
+	TrajetCompose * T2 = new TrajetCompose(DEPT, Transfer, LesTrajets, nbr);
+	if((strcmp(DeptSelecte,DEPT)==0 || strcmp(DeptSelecte,"TBD")==0) && (strcmp(ArriSelecte,Transfer)==0 || strcmp(ArriSelecte,"TBD")==0)){
+	AjouterC(T2);
+	} else {
+	delete T2;
+	}
+	}
+	}
+}
+
+void Catalogue::Charger(fstream & entree, int LigneTete, int LigneFin){
+	int Ligne = 1;
+	while(entree.good()){
+	string type;
+	entree >> type;
+	if(type == "2"){
+	break;
+	}else if(type == "0"){
+		if(Ligne >= LigneTete && Ligne <= LigneFin){
+		char * Dept = new char [20];
+		char * Arri = new char [20];
+		char * Mode = new char [20];
+		entree >> Dept;
+		entree >> Arri;
+		entree >> Mode;
+		TrajetSimple * T0 = new TrajetSimple(Dept,Arri,Mode);
+		AjouterS(T0);
+		} else if (Ligne > LigneFin){
+		break;
+		}
+		Ligne++;
+	} else if (type == "1"){
+		if(Ligne >= LigneTete && Ligne <= LigneFin){
+		int nbr;
+		entree >> nbr;
+		int i = 0;
+		char * Dept = new char [20];
+		entree >> Dept;
+		char * DEPT = new char [20];
+		strcpy(DEPT,Dept);
+		TrajetSimple** LesTrajets = new TrajetSimple* [nbr];
+		char * Transfer;
+		Transfer = Dept;
+		while(i < nbr){
+		char * Arri = new char [20];
+		entree >> Arri;
+		char * T = new char [20];
+		strcpy(T,Arri);
+		char * Mode = new char [20];
+		entree >> Mode;
+		TrajetSimple * T0 = new TrajetSimple(Transfer,Arri,Mode);
+		LesTrajets [i] = T0;
+		Transfer = T;
+		i++;
+		}
+		TrajetCompose * T2 = new TrajetCompose(DEPT, Transfer, LesTrajets, nbr);
+		AjouterC(T2);
+		} else if (Ligne > LigneFin){
+		break;
+		}
+		Ligne++;
+	}
+	}
+}
 
