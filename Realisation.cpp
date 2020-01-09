@@ -202,7 +202,7 @@ cin >> choix;
 		}
 		if(choice == '2') {
 			string nomficher;
-			cout << "Saisisez le nom de ficher :" << endl;
+			cout << "Saisisez le nom de fichier :" << endl;
 			cin >> nomficher;
 			cout << "Saisisez le type des trajets ( 0 pour un trajet simple, 1 pour un trajet compose ) :" << endl;
 			string TypeSelece;
@@ -210,6 +210,24 @@ cin >> choix;
 			fstream sortie(nomficher.c_str(),fstream::out);
 			sortie.seekp(0,ios::beg);
 			c ->Sauvegarder(sortie,atoi(TypeSelece.c_str())); // apparently can't use stoi() introduced in c++11
+		}
+		if(choice == '3'){
+			string nomficher;
+			cout << "Saisisez le nom de fichier :" << endl;
+			cin >> nomficher;
+			cout << "Saisisez la ville de depart :" << endl;
+			cout << "Si vous ne voulez pas choisir selon la ville de depart, saisisez TBD" << endl;
+			char * Dept = new char [20];
+			cin >> Dept;
+			cout << "Saisisez la ville d'arrivee :" << endl;
+			cout << "Si vous ne voulez pas choisir selon la ville d'arrivee, saisisez TBD" << endl;
+			char * Arri = new char [20];
+			cin >> Arri;
+			fstream sortie(nomficher.c_str(),fstream::out);
+			sortie.seekp(0,ios::beg);
+			c ->Sauvegarder(sortie,Dept,Arri);
+			delete [] Dept;
+			delete [] Arri;
 		}
 	}
 	if(choix == '8')

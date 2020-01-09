@@ -61,7 +61,7 @@ void Catalogue::Sauvegarder(fstream & sortie) {
 }
 
 void Catalogue::Sauvegarder(fstream & sortie, int type) {
-	//Algorithle :
+	//Algorithme :
 	if(Nbtraj==0) {
 		return;
 	}
@@ -70,7 +70,23 @@ void Catalogue::Sauvegarder(fstream & sortie, int type) {
 			for(i=0;i<Nbtraj;i++){
 				if (Trajets[i]->isTrajetCompose() == type) Trajets[i]->Sauvegarder(sortie);
 			}
-			sortie << "2";
+		sortie << "2";
+	}
+}
+
+void Catalogue::Sauvegarder(fstream & sortie, char * DeptSelecte, char * ArriSelecte) {
+	//Algorithme :
+	if(Nbtraj==0) {
+		return;
+	}
+	else {
+		int i;
+		for(i=0;i<Nbtraj;i++){
+			if(strcmp(DeptSelecte,Trajets[i]->Depart)==0 || strcmp(DeptSelecte,"TBD")==0) {
+				if(strcmp(ArriSelecte,Trajets[i]->Arrivee)==0 || strcmp(ArriSelecte,"TBD")==0) Trajets[i]->Sauvegarder(sortie);
+			}
+		}
+		sortie << "2";
 	}
 }
 
