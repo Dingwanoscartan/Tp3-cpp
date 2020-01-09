@@ -49,6 +49,12 @@ class TrajetCompose: public Trajet
 		// Mode d'emploi :
 		// methode qui sauvegarde tous les information d'un TrajetCompose dans un flux
 		//
+
+		int isTrajetCompose();
+		// Mode d'emploi :
+		// methode qui affiche les information d'un Trajet
+		// Contrat :
+		//
 		
 		
 		//---------------------------------------------------- Attributs publiques

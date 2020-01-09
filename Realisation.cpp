@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <cstring>
+#include <cstdlib>
+#include <string>
 #include <iostream>
 #include <fstream>
 #include "Trajet.h"
@@ -185,6 +187,30 @@ cin >> choix;
 	entree.seekp(0,ios::beg);
 	c ->Charger(entree,LigneTete,LigneFin);
 	}
+	}
+	if(choix == '7') {
+		char choice;
+		cout<<"\r\n"<<"Menu:\r\n"<<"1: Sauvegarder sans selection\r\n"<<"2: Sauvegarder selon le type des trajets\r\n"<<"3: Sauvegarder selon la ville de depart et/ou la ville d'arrivee\r\n"<<"4: Sauvegarder selon une selection de trajets\r\n";
+		cin >> choice;
+		if(choice == '1'){
+			string nomficher;
+			cout << "Saisisez le nom de ficher :" << endl;
+			cin >> nomficher;
+			fstream sortie(nomficher.c_str(),fstream::out);
+			sortie.seekp(0,ios::beg);
+			c->Sauvegarder(sortie);
+		}
+		if(choice == '2') {
+			string nomficher;
+			cout << "Saisisez le nom de ficher :" << endl;
+			cin >> nomficher;
+			cout << "Saisisez le type des trajets ( 0 pour un trajet simple, 1 pour un trajet compose ) :" << endl;
+			string TypeSelece;
+			cin >> TypeSelece;
+			fstream sortie(nomficher.c_str(),fstream::out);
+			sortie.seekp(0,ios::beg);
+			c ->Sauvegarder(sortie,atoi(TypeSelece.c_str())); // apparently can't use stoi() introduced in c++11
+		}
 	}
 	if(choix == '8')
 	{

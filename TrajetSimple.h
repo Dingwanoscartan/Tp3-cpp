@@ -42,6 +42,13 @@ class TrajetSimple:public Trajet
 		// methode qui affiche tous les information d'un TrajetSimple
 		//
 
+		int isTrajetCompose();
+		// Mode d'emploi :
+		// methode qui affiche les information d'un Trajet
+		// Contrat :
+		//
+
+
 		void Sauvegarder(fstream & sortie);
 		// Mode d'emploi :
 		// methode qui sauvegarde tous les information d'un TrajetSimple dans un flux

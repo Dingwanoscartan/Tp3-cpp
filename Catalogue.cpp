@@ -60,6 +60,20 @@ void Catalogue::Sauvegarder(fstream & sortie) {
 	}		 
 }
 
+void Catalogue::Sauvegarder(fstream & sortie, int type) {
+	//Algorithle :
+	if(Nbtraj==0) {
+		return;
+	}
+	else {
+			int i;
+			for(i=0;i<Nbtraj;i++){
+				if (Trajets[i]->isTrajetCompose() == type) Trajets[i]->Sauvegarder(sortie);
+			}
+			sortie << "2";
+	}
+}
+
 void Catalogue::Chercher(char * Dep,char * Arr){
 	//Algorithme :
 	int trouve=0;	

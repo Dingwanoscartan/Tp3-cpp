@@ -50,6 +50,12 @@ public:
 	// Contrat :
 	//
 
+	virtual int isTrajetCompose();
+	// Mode d'emploi :
+	// methode qui affiche les information d'un Trajet
+	// Contrat :
+	//
+
 	virtual void Sauvegarder(fstream & sortie);
 	// Mode d'emploi :
 	// methode qui sauvegarde les information d'un Trajet dans un flux

@@ -45,6 +45,11 @@ void TrajetSimple::Sauvegarder(fstream & sortie){
 	sortie << "0 " << Depart << " " << Arrivee << " " << Mode << endl;
 }
 
+int TrajetSimple::isTrajetCompose() {
+//Algorithme : 
+	return 0;
+}
+
 TrajetSimple::~TrajetSimple()
 {
     //destructeur qui detruit ces trois tableaus de maniere explicite

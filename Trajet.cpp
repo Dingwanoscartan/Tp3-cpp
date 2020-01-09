@@ -48,6 +48,10 @@ void Trajet::Sauvegarder(fstream & sortie){
 //Algorithme :
 }
 
+int Trajet::isTrajetCompose() {
+//Algorithme:
+}//------ Fin de Methode
+
 Trajet::~Trajet(){
 //Algorithme :	
 //destructeur

@@ -57,6 +57,12 @@ void TrajetCompose::Sauvegarder(fstream & sortie) {
 	sortie << "\r\n";
 }
 
+
+int TrajetCompose::isTrajetCompose() {
+//Algorithme:
+	return 1;
+}//------ Fin de Methode
+
 TrajetCompose::~TrajetCompose()
 {
 	// Mode d'emploi :
