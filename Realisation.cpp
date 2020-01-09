@@ -17,7 +17,7 @@ int len;
 int i;
 int Fin = 0;
 while(Fin == 0){ 
-cout<<"\r\n"<<"Menu:\r\n"<<"1: Afficher la catalogue\r\n"<<"2: Rechercher\r\n"<<"3: Ajouter un trajet simple\r\n"<<"4: Ajouter un trajet compose\r\n"<<"5: Rechercher en mode avancee\r\n"<<"6: Chargement sans selection\r\n"<<"7: Sauvegarde\r\n"<<"8: Quitter\r\n";
+cout<<"\r\n"<<"Menu:\r\n"<<"1: Afficher la catalogue\r\n"<<"2: Rechercher\r\n"<<"3: Ajouter un trajet simple\r\n"<<"4: Ajouter un trajet compose\r\n"<<"5: Rechercher en mode avancee\r\n"<<"6: Chargement\r\n"<<"7: Sauvegarde\r\n"<<"8: Quitter\r\n";
 cin >> choix;
 	if(choix == '1')
 	{
@@ -151,9 +151,13 @@ cin >> choix;
 	cout << "Saisisez le type des trajets ( 0 pour un trajet simple, 1 pour un trajet compose ) :" << endl;
 	string TypeSelece;
 	cin >> TypeSelece;
+	if(TypeSelece == "0" || TypeSelece == "1"){
 	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
 	entree.seekp(0,ios::beg);
 	c ->Charger(entree,TypeSelece);
+	} else {
+	cout << "Err: Le type que vous avez choisi n'est pas correct!!!" << endl;
+	}
 	}
 	if(choice == '3'){
 	string nomficher;
@@ -183,9 +187,13 @@ cin >> choix;
 	cout << "Saisisez l'indice de la derniere ligne :" << endl;
 	int LigneFin;
 	cin >> LigneFin;
+	if(LigneTete >= 1 && LigneFin >= LigneTete){
 	fstream entree(nomficher.c_str(),fstream::in | fstream::out);
 	entree.seekp(0,ios::beg);
 	c ->Charger(entree,LigneTete,LigneFin);
+	} else {
+	cout << "Err: L'indice que vous avez choisi n'est pas correct!!!" << endl;
+	}
 	}
 	}
 	if(choix == '7') {
@@ -207,9 +215,13 @@ cin >> choix;
 			cout << "Saisisez le type des trajets ( 0 pour un trajet simple, 1 pour un trajet compose ) :" << endl;
 			string TypeSelece;
 			cin >> TypeSelece;
-			fstream sortie(nomficher.c_str(),fstream::out);
-			sortie.seekp(0,ios::beg);
-			c ->Sauvegarder(sortie,atoi(TypeSelece.c_str())); // apparently can't use stoi() introduced in c++11
+			if(TypeSelece == "0" || TypeSelece == "1"){
+				fstream sortie(nomficher.c_str(),fstream::out);
+				sortie.seekp(0,ios::beg);
+				c ->Sauvegarder(sortie,atoi(TypeSelece.c_str())); // apparently can't use stoi() introduced in c++11
+			} else {
+				cout << "Err: Le type que vous avez choisi n'est pas correct!!!" << endl;
+			}
 		}
 		if(choice == '3'){
 			string nomficher;
@@ -233,15 +245,19 @@ cin >> choix;
 			string nomficher;
 			cout << "Saisisez le nom de ficher :" << endl;
 			cin >> nomficher;
-			cout << "Saisisez l'indice de la premiere ligne :" << endl;
+			cout << "Saisisez l'indice du premier trajet :" << endl;
 			int LigneTete;
 			cin >> LigneTete;
-			cout << "Saisisez l'indice de la derniere ligne :" << endl;
+			cout << "Saisisez l'indice du dernier trajet :" << endl;
 			int LigneFin;
 			cin >> LigneFin;
-			fstream sortie(nomficher.c_str(),fstream::out);
-			sortie.seekp(0,ios::beg);
-			c ->Sauvegarder(sortie,LigneTete,LigneFin);
+			if(LigneTete >= 1 && LigneFin >= LigneTete && LigneFin <= c ->Nbtraj){
+				fstream sortie(nomficher.c_str(),fstream::out);
+				sortie.seekp(0,ios::beg);
+				c ->Sauvegarder(sortie,LigneTete,LigneFin);
+			} else {
+				cout << "Err: L'indice que vous avez choisi n'est pas correct!!!" << endl;
+			}
 		}
 	}
 	if(choix == '8')

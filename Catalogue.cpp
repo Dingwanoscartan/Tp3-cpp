@@ -97,7 +97,7 @@ void Catalogue::Sauvegarder(fstream & sortie, int LigneTete, int LigneFin) {
 	}
 	else {
 			int i;
-			for(i=LigneTete+1;i<LigneFin;i++){
+			for(i=LigneTete-1;i<LigneFin;i++){
 				Trajets[i]->Sauvegarder(sortie);
 			}
 		sortie << "2";
@@ -239,15 +239,12 @@ void Catalogue::ChercherCorres(char* Dep, char* Arr, int* tab, int nbr, int* fou
 }//----- Fin de M��thode
 
 void Catalogue::Charger(fstream & entree){
-	cout << "entrer dans le bloc" << endl;
-	while(1){
-	cout << "entree.good" << endl;
+	while(entree.good()){
 	char type;
 	entree >> type;
 	if(type == '2'){
 	break;
 	}else if(type == '0'){
-	cout << "Trajet Simple" << endl;
 	char * Dept = new char [20];
 	char * Arri = new char [20];
 	char * Mode = new char [20];
@@ -257,7 +254,6 @@ void Catalogue::Charger(fstream & entree){
 	TrajetSimple * T0 = new TrajetSimple(Dept,Arri,Mode);
 	AjouterS(T0);
 	} else if (type == '1'){
-	cout << "Trajet Compose" << endl;
 	int nbr;
 	entree >> nbr;
 	int i = 0;
@@ -292,7 +288,7 @@ void Catalogue::Charger(fstream & entree, string TypeSelecte){
 	entree >> type;
 	if(type == "2"){
 	break;
-	}else if(type == TypeSelecte){
+	}else if(type == TypeSelecte && TypeSelecte == "0"){
 	char * Dept = new char [20];
 	char * Arri = new char [20];
 	char * Mode = new char [20];
@@ -301,7 +297,7 @@ void Catalogue::Charger(fstream & entree, string TypeSelecte){
 	entree >> Mode;
 	TrajetSimple * T0 = new TrajetSimple(Dept,Arri,Mode);
 	AjouterS(T0);
-	} else if (type == TypeSelecte){
+	} else if (type == TypeSelecte && TypeSelecte == "1"){
 	int nbr;
 	entree >> nbr;
 	int i = 0;
