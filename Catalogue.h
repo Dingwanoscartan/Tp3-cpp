@@ -61,6 +61,11 @@ public:
 	// methode pour sauvegarder tous les Trajet stocke dans le flux
 	//
 
+	void Sauvegarder(fstream & sortie, int LigneTete, int LigneFin);
+	// Mode d'emploi :
+	// methode pour sauvegarder tous les Trajet stocke dans le flux
+	//
+
 	void Chercher(char * Depart, char * Arrivee);
 	// Mode d'emploi :
 	// methode qui cherche les trajet correpondant a la demand de l'utilisateur

@@ -90,6 +90,20 @@ void Catalogue::Sauvegarder(fstream & sortie, char * DeptSelecte, char * ArriSel
 	}
 }
 
+void Catalogue::Sauvegarder(fstream & sortie, int LigneTete, int LigneFin) {
+	//Algorithme :
+	if(Nbtraj==0) {
+		return;
+	}
+	else {
+			int i;
+			for(i=LigneTete+1;i<LigneFin;i++){
+				Trajets[i]->Sauvegarder(sortie);
+			}
+		sortie << "2";
+	}
+}
+
 void Catalogue::Chercher(char * Dep,char * Arr){
 	//Algorithme :
 	int trouve=0;	

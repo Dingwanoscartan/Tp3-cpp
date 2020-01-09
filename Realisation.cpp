@@ -229,6 +229,20 @@ cin >> choix;
 			delete [] Dept;
 			delete [] Arri;
 		}
+		if(choice == '4'){
+			string nomficher;
+			cout << "Saisisez le nom de ficher :" << endl;
+			cin >> nomficher;
+			cout << "Saisisez l'indice de la premiere ligne :" << endl;
+			int LigneTete;
+			cin >> LigneTete;
+			cout << "Saisisez l'indice de la derniere ligne :" << endl;
+			int LigneFin;
+			cin >> LigneFin;
+			fstream sortie(nomficher.c_str(),fstream::out);
+			sortie.seekp(0,ios::beg);
+			c ->Sauvegarder(sortie,LigneTete,LigneFin);
+		}
 	}
 	if(choix == '8')
 	{
